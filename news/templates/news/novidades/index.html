@@ -1,0 +1,50 @@
+{% extends 'news/base.html' %}
+  {% load staticfiles %}
+  {% block content %}
+  <!-- specific css starts -->
+  <link rel="stylesheet" href="{% static 'css/style-novidades.min.css' %}">
+  <!-- specific css ends -->
+           <div class="col-xs-12">
+             <div class="col-xs-9">
+                {% for post in posts %}
+                  <div class="thumbnail col-xs-6 novidade">
+                    <a href="{% url 'news.views.post_detail' pk=post.pk %}">
+                      <img src="http://ejectufrn.com.br/site/components/img/0{{ forloop.counter0 }}.png" alt="{{ post.created_date }}">
+                      <div class="caption">
+                        <h3>{{ post.title }}</h3>
+                       <p>{{ post.text|linebreaks }}</p>
+                      </div>
+                     </a>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="col-xs-3">
+                  <script>
+                          (function() {
+                            var cx = '013599118701311875676:f2fqsowwrvq';
+                            var gcse = document.createElement('script');
+                            gcse.type = 'text/javascript';
+                            gcse.async = true;
+                            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                '//cse.google.com/cse.js?cx=' + cx;
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(gcse, s);
+                          })();
+                    </script>
+                    <gcse:search></gcse:search>
+                  <img src="{% static 'img/coracao.png' %}" alt="coraçao" class="lupa s2">
+                  <h3>Mais Visitados</h3>
+                  <select name="escolha" id="escolha"  class="escolha col-xs-8">
+                      <option value=""  selected >Tópicos</option>
+                      <option value="">Tópico 1</option>
+                      <option value="">Tópico 2</option>
+                      <option value="">Tópico 3</option>
+                  </select>
+                  <div class="col-xs-4">
+                    <img src="{% static 'img/balao.png' %}" alt="balao" class="lupa">
+                  </div>
+                </div>
+            </div>
+         </div>
+       </div>
+    {% endblock %}

@@ -1,0 +1,79 @@
+@font-face{
+	font-family: 'Nexa Bold';
+	src: url('../fonts/nexa/Nexa Bold.otf');
+}
+@font-face{
+	font-family: 'Nexa Light';
+	src: url('../fonts/nexa/Nexa Light.otf');
+}
+
+.menuLateralFixo{
+	position: fixed;
+}
+.orelha{
+	
+	width:0;
+    height:0;
+    border:15px solid transparent;
+	margin-left: -15px;
+    display:block;
+	border-bottom-color:#4766dd;
+    width: 208.8888px;
+    margin-top: -18px;
+
+}
+.corpo{
+	width: 180px;	
+    height: 400px;
+	padding-left: 0;
+	padding-top: 0px;
+	margin-left: 63px;
+	background: #889ae0;
+	
+	
+}
+
+.menuTexto{
+	position: absolute;
+	top: 30px;
+	left: 90px;
+	color: white;
+	font-size: 20px;
+	line-height: 2;
+	font-family: 'Nexa Bold', sans-serif;
+	background: #889ae0;
+	width:130px;
+	
+	
+}
+.menuTexto a{
+	text-decoration: none;
+	color: white;
+	font-family: 'Nexa Light', sans-serif;
+}
+.menuTexto a:hover{
+	color: lightgray;
+	font-family: 'Nexa Light', sans-serif;
+}
+span.bandeira{
+    width:0;
+    height:0;
+    border:90px solid transparent;
+	margin-left: 63px;
+    display:block;
+	border-top-color:#889ae0;
+    border-left-color:#889ae0;
+    border-right-color:#889ae0;
+    
+}
+
+
+
+
+.colImg{
+	padding-top: 20px;
+}
+.imgPort{
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}

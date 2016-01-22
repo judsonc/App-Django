@@ -1,0 +1,53 @@
+{% extends 'news/base.html' %}
+  {% load staticfiles %}
+  {% block content %}
+  <!-- specific css starts -->
+  <link rel="stylesheet" href="{% static 'css/style-sobre.min.css' %}">
+  <!-- specific css ends -->
+      <div class="col-xs-12">
+        <div id='sobre' class="col-xs-9 ">
+            <div class="col-xs-12 quemSomos">
+                <h1>Who are <strong>we</strong>?</h1>
+                <p>{{ company.about|linebreaks }}</p>
+            </div>
+            <div class="col-xs-4 missao">
+              <span class="icon" style="background-position:-15px 397px;"></span>
+              <h2>Missão</h2>
+              <p>{{ company.mission }}</p>
+            </div>
+            <div class="col-xs-4 visao">
+              <span class="icon" style="background-position:-15px 180px;"></span>
+                <h2>Visão</h2>
+                <p>{{ company.vision }}</p>
+            </div>
+            <div class="col-xs-4 valores">
+              <span class="icon" style="background-position:-15px 288px;"></span>
+                <h2>Valores</h2>
+                <p>{{ company.value|linebreaks }}</p>
+            </div>
+        </div>
+        <div class="col-xs-3">
+    			<div class="col-xs-12 mej1">
+    		    <h4>Já conhece o MEJ?</h4>
+    		</div>
+    		<div class="col-xs-12 mej">
+    	    <span class="baixo"></span>
+    	    <a href="http://brasiljunior.org.br" target="_blank">
+            <img class="col-xs-12 espaco" alt="" src="http://ejectufrn.com.br/site/components/img/brasiljunior.svg"/>
+          </a>
+    		</div>
+    		<div class="col-xs-12 mej1">
+    	    <h4>Parceiros</h4>
+    		</div>
+    		<div class="col-xs-12 parceiros">
+    	    <span class="baixo"></span>
+            <a href="http://ufrn.br" target="_blank">
+              <img class="col-xs-12 espaco" alt="" src="http://ejectufrn.com.br/site/components/img/ufrn.svg"/>
+            </a>
+            <a href="http://www.fb.com/federacaornjunior" target="_blank">
+              <img class="col-xs-12 espaco" alt="" src="http://ejectufrn.com.br/site/components/img/rnjunior.svg"/>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
