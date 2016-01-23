@@ -1,9 +1,6 @@
 {% extends 'news/base.html' %}
   {% load staticfiles %}
   {% block content %}
-  <!-- specific css starts -->
-  <link rel="stylesheet" href="{% static 'css/style-home.min.css' %}">
-  <!-- specific css ends -->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -16,7 +13,7 @@
         <div class="carousel-inner" role="listbox">
           {% for photo in photos %}
              <div class="item {% if forloop.first %} active {% endif %}">
-       	      <img width="100%" height="100%" src="{{ photo.url }}" alt="{{ photo.name }}">
+       	      <img width="100%" height="100%" src="{{ photo.picture }}" alt="{{ photo.name }}">
        	    </div>
           {% endfor %}
            <!-- Left and right controls -->

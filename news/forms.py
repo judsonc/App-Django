@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import forms
 
 from .models import Photo #, Post
@@ -6,7 +7,7 @@ from .models import Photo #, Post
 class FormPhoto(forms.ModelForm):
     class Meta:
         model = Photo
-        fields = ('name', 'url',)
+        fields = ('name', 'picture',)
 
 """ FORMULARIO PRA PAGINA CONTATO / ADICIONA POSTS
 class PostForm(forms.ModelForm):

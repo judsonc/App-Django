@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from django.db import models
@@ -8,7 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField('Título', max_length=200)
     text = models.TextField('Texto')
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField('Data de envio', default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
     class Meta:
@@ -39,8 +38,8 @@ class Company(models.Model):
 class Photo(models.Model):
     author = models.ForeignKey('auth.User')
     name = models.CharField('Nome', max_length=100)
-    url = models.CharField('Endereço', max_length=150)
-    created_date = models.DateTimeField(default=timezone.now)
+    picture = models.ImageField('Foto', upload_to='img')
+    created_date = models.DateTimeField('Data de envio', default=timezone.now)
 
     class Meta:
         verbose_name = 'Foto'

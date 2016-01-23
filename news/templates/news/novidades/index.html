@@ -1,9 +1,6 @@
 {% extends 'news/base.html' %}
   {% load staticfiles %}
   {% block content %}
-  <!-- specific css starts -->
-  <link rel="stylesheet" href="{% static 'css/style-novidades.min.css' %}">
-  <!-- specific css ends -->
            <div class="col-xs-12">
              <div class="col-xs-9">
                 {% for post in posts %}
@@ -45,6 +42,4 @@
                   </div>
                 </div>
             </div>
-         </div>
-       </div>
     {% endblock %}
