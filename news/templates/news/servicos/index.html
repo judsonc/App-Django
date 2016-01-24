@@ -18,28 +18,30 @@
 					</div>
 				{% endfor %}
 			</div>
+      <div class="col-xs-6">
 			{% for service in services %}
-			<div class="col-xs-6" id="{{ service.category.name.lower }}-service" style="display:none">
-					<div class="op">
-						<div class="ponta"></div>
-						<div class="box1">
-							<img src="/media/{{ service.picture }}"/>
-						</div>
-						<div class="sombra"></div>
-						<div class="box22">
-							<div class="texto">
-								{{ service.text|linebreaks }}
-							</div>
-						</div>
-					</div>
-			</div>
+			   <div id="{{ service.category.name.lower }}-service" style="display:none">
+           {% for serv in services %}
+            {% if service.category.name == serv.category.name %}
+    					<div class="op">
+    						<div class="ponta"></div>
+    						<div class="box1">
+    							<img src="/media/{{ serv.picture }}"/>
+    						</div>
+    						<div class="sombra"></div>
+    						<div class="box22">
+    							<div class="texto">
+    								{{ serv.text|linebreaks }}
+    							</div>
+    						</div>
+    					</div>
+            {% endif %}
+          {% endfor %}
+  			</div>
 			{% endfor %}
+      </div>
 		</div>
 		<script>
-			//$(document).ready(function(){$(".op").not(".ativa").click(function(){$(".op.ativa").removeClass("ativa");$(this).addClass("ativa");{% for category in categories %}
-			//	if($(this).attr("id")=="{{ category.name.lower }}"){$("#{{ category.name.lower }}-service").show()}else{$("#{{ category.name.lower }}-service").hide()}; {% endfor %} });
-			//});
-
 			$(document).ready(function(){
 			    $(".op").not(".ativa").click(function(){
 			        $(".op.ativa").removeClass("ativa");
@@ -56,7 +58,5 @@
 			    		}{% endfor %}
 			    });
 			});
-
-
 		</script>
   {% endblock %}
