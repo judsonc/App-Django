@@ -10,11 +10,11 @@
 }
 .quemSomos h1{
     text-indent: 5px;
-
+    
 }
 .quemSomos p{
     text-indent: 25px;
-
+    
 }
 
 .quemSomos p, .missao p,.visao p,.valores p{
@@ -22,10 +22,10 @@
 }
 .missao,.visao,.valores,.espaco{
     text-align:  center;
-
+    
 }
 .missao h2,.visao h2,.valores h2{
-
+	
     color: #6bb8b8
 }
 .espaco{
@@ -41,7 +41,7 @@
 	padding-bottom:10px;
 }
 
-span.baixo{
+span.baixo{ 
     border-top-color:#545454;
     margin: 0 50%;
 }
@@ -53,9 +53,10 @@ a.espaco:link,a.espaco:active,a.espaco:visited,a.espaco:hover{im
 }
 #sobre .icon{
 	margin: 0px auto;
-
+	
     background-image:url('http://ejectufrn.com.br/site/components/img/sobre.svg');
     background-size:93px 500px;
     height:100px;
     width:93px;
 }
+

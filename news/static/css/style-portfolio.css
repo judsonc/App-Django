@@ -67,9 +67,6 @@ span.bandeira{
     
 }
 
-
-
-
 .colImg{
 	padding-top: 20px;
 }
@@ -77,3 +74,10 @@ span.bandeira{
 	width: 100%;
 	padding: 10px 0px 10px 0px;
 }
+.ver{
+	display:none;
+}
+.mostrarImagem{
+	display: block!important;
+}
+

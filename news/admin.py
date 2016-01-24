@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import Post, Photo, Company
+from .models import *
 
 admin.site.register(Post)
-admin.site.register(Photo)
+admin.site.register(Banner)
 admin.site.register(Company)
+admin.site.register(Client)
+admin.site.register(CategoryServices)
+admin.site.register(Service)

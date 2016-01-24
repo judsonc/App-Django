@@ -17,6 +17,12 @@
     <!-- specific css starts -->
     <link rel="stylesheet" href="/static/css/style-{{title}}.min.css">
     <!-- specific css ends -->
+    <!-- jQuery -->
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- The fav icon -->
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png" >
 </head>
@@ -65,13 +71,13 @@
                   </a>
              </li>
              <li>
-                  <a href="http://ejectufrn.com.br/site/servicos">
+                  <a href="{% url 'news.views.services' %}">
                       <span class="icon" style="background-position:-30px 137px;"></span>
                       <span class="text">Serviços</span>
                   </a>
              </li>
              <li>
-                  <a href="http://ejectufrn.com.br/site/portfolio">
+                  <a href="{% url 'news.views.portfolio' %}">
                       <span class="icon" style="background-position:-30px 220px;"></span>
                       <span class="text">Portfólio</span>
                   </a>
@@ -97,12 +103,8 @@
       {% endblock %}
     </div>
     <!-- jQuery -->
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{% static 'js/main.min.js' %}"></script>
+    <script src="/static/js/js-{{title}}.min.js"></script>
     </body>
 </html>
