@@ -18,8 +18,8 @@
 			</div>
 			<div  class="containerImg col-xs-9">
 				{% for client in clients %}
-					<div class="colImg col-xs-4 {{ client.category }}">
-						<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category }}">
+					<div class="colImg col-xs-4 {{ client.category.name.lower }}">
+						<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
 					</div>
 				{% endfor %}
 			</div>

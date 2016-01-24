@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.template import RequestContext, Context
 from django.template.loader import get_template
-from django.core.mail import EmailMessage, send_mail, BadHeaderError
+from django.core.mail import EmailMessage, send_mass_mail
 from .models import *
 from .forms import FormContact
 #from .forms import PostForm
@@ -22,17 +22,15 @@ def about(request):
 
 def contact(request):   # Formulario add foto
     if request.method == "POST":
-        name = request.POST.get('name', '')
-        message = request.POST.get('message', '')
-        email = request.POST.get('email', '')
-        if name and message and email:
-            try:
-                send_mail(name, message, email, ['ex@ex.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+        form = FormContact(request.POST)
+        if form.is_valid():
+            photo = form
+            photo.author = request.user
+            newphoto = Banner(picture = request.FILES['picture'])
+            newphoto.save()
             return redirect('news.views.home')
     else:
-        pass
+        form = FormContact()
     return render(request, 'news/contato/index.html', {'form': form, 'title': "contato", 'company': getCompany()})
 
 def portfolio(request):
