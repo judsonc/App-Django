@@ -3,3 +3,5 @@ __pycache__
 site
 db.sqlite3
 .DS_Store
+img
+media
