@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ title.title }} | {{ company.name }} </title>
+    <title>{{ title.title }} | {{ company.name }}</title>
     <meta name="description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia.">
     <meta name="author" content="EJECT - Empresa Júnior da Escola de Ciências e Tecnologia">
     <meta name="og:description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia."/>
@@ -17,14 +17,14 @@
     <!-- specific css starts -->
     <link rel="stylesheet" href="/static/css/style-{{title}}.min.css">
     <!-- specific css ends -->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png" >
     <!-- jQuery -->
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- The fav icon -->
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png" >
 </head>
 <body>
     <!-- topbar starts -->
@@ -89,7 +89,7 @@
                   </a>
              </li>
              <li>
-                  <a href="{% url 'news.views.contact' %}">
+                  <a href="#" data-toggle="modal" data-target="#contatos">
                       <span class="icon" style="background-position:-30px -15px;"></span>
                       <span class="text">Contato</span>
                   </a>
@@ -98,6 +98,74 @@
         </div>
     </header>
     <!-- topbar ends -->
+    <div class="modal fade" id="contatos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  		<div class="modal-dialog" role="document">
+			  <div class="retanguloMaior">
+  				<h2>Contato</h2>
+  				<a href="#" id="entrarContatoEject" class="semEfeito">
+  					<div id="ejectContato" class="col-xs-6">
+  						<p>A <font class="NexaBold">EJECT</font> entra em contato</p>
+  					</div>
+  				</a>
+  				<a href="#" id="entrarContatoVoce" class="semEfeito">
+  					<div id="voceContato" class="col-xs-6">
+  						<p>&nbsp;<font class="NexaBold">Você</font> &nbsp;&nbsp; entra em contato</p>
+  					</div>
+  				</a>
+  				<div class="endereco col-xs-12">
+  					<p><font class="branca">Endereço:</font> {{ company.address }}, {{ company.neighboor.title }}, CEP: {{ company.zip.title }}</p>
+  				</div>
+  				<div id="opcao1" class="col-xs-12 ocultar">
+  					<div class="col-xs-12 opcao1Caixa">
+  						<form method="post" class="form-horizontal">{% csrf_token %}
+                  <fieldset>
+                      {% for field in formYou %}
+                          {% if field.errors %}
+                              <div>{{ field }}
+                                  <span>
+                                      {% for error in field.errors %}{{ error }}{% endfor %}
+                                  </span>
+                              </div>
+                          {% else %}
+                              <div>{{ field }}
+                                  {% if field.help_text %}
+                                      <p><small>{{ field.help_text }}</small></p>
+                                  {% endif %}
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </fieldset>
+  								<button type="submit" class="btn botao">Enviar</button>
+  						</form>
+  					</div>
+  				</div>
+  				<div id="opcao2" class="col-xs-12 ocultar">
+  					<div class="col-xs-12 opcao2Caixa">
+  						<form method="post" class="form-horizontal">{% csrf_token %}
+                  <fieldset>
+                      {% for field in formEJ %}
+                          {% if field.errors %}
+                              <div>{{ field }}
+                                    <span>
+                                        {% for error in field.errors %}{{ error }}{% endfor %}
+                                    </span>
+                              </div>
+                          {% else %}
+                              <div>{{ field }}
+                                  {% if field.help_text %}
+                                      <p><small>{{ field.help_text }}</small></p>
+                                  {% endif %}
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </fieldset>
+  								<button type="submit" class="btn botao">Enviar</button>
+  						</form>
+  					</div>
+  				</div>
+  		  </div>
+  		</div>
+    </div>
     <div class="container">
       {% block content %}
       {% endblock %}

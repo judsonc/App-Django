@@ -1,1 +1,210 @@
-body,.navbar-fixed-top,.navbar-fixed-bottom{min-width:970px}.container{min-width:970px;width:100% !important;max-width:1300px;padding:0}body{background-color:#f6f6f6;margin-top:70px}#menu{background:#f6f6f6;height:70px;padding:10px 50px;border:0}#logo-menu{margin-right:50px}#redeSocial li{display:inline-block}#redeSocial .icon,#icon-subMenu{background-image:url('http://ejectufrn.com.br/site/components/img/redes-sociais.svg');background-size:50px 268px;height:51px;width:50px}#redeSocial a{padding:0}#redeSocial a:focus,#redeSocial a:hover{background-color:transparent}#subMenu{z-index:2;margin:60px 25px 0 0;background:#f6f6f6;width:300px;overflow:hidden;position:absolute;right:0;padding:10px 0;text-align:center;display:none;-webkit-box-shadow:0 0 15px 0 #666;box-shadow:0 0 15px 0 #666}.animated{animation-duration:.4s !important;-webkit-animation-duration:.4s !important}#subMenu a{text-decoration:none}#subMenu li{display:inline-block;height:100px;width:85px;margin-top:10px}#subMenu .icon{background-image:url('http://ejectufrn.com.br/site/components/img/sub-menu.svg');background-size:100px 485px;height:70px;width:70px}#subMenu .text{margin:-13px -4px;color:#000}span{border:15px solid transparent;display:block;margin:0px 7px}span.cima{position:absolute;right:0;margin-right:67px;margin-top:34px;border-bottom-color:#f6f6f6;display:none;z-index:3}.rounded{-webkit-border-radius:100%;border-radius:100%}
+/* ----- NON-RESPONSIVE ----- */
+body,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  min-width: 970px;
+}
+/* Reset the container */
+.container {
+    min-width: 970px;
+    width: 100% !important;
+    max-width: 1300px;
+    padding: 0;
+}
+/* ----- ENDS NON-RESPONSIVE ----- */
+body{
+    background-color:#f6f6f6;
+    margin-top:70px
+}#menu{
+    background:#f6f6f6;
+    height:70px;
+    padding:10px 50px;
+    border:0;
+}
+#logo-menu{
+    margin-right:50px;
+}
+#redeSocial li{display:inline-block}
+#redeSocial .icon, #icon-subMenu{
+    background-image:url('http://ejectufrn.com.br/mobile/components/img/redes-sociais.svg');
+    background-size:50px 268px;
+    height:51px;
+    width:50px;
+}
+#redeSocial a{padding:0}
+#redeSocial a:focus,
+#redeSocial a:hover{
+    background-color:transparent;
+}
+#subMenu{
+    z-index:2;
+    margin:60px 25px 0 0;
+    background:#f6f6f6;
+    width:300px;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    padding:10px 0;
+    text-align:center;
+    display:none;
+    -webkit-box-shadow:0 0 15px 0 #666;
+           box-shadow:0 0 15px 0 #666;
+}
+#subMenu a{text-decoration:none}
+#subMenu li{
+    display:inline-block;
+    height:100px;
+    width:85px;
+    margin-top:10px;
+}
+#subMenu .icon{
+    background-image:url('http://ejectufrn.com.br/site/components/img/sub-menu.svg');
+    background-size:100px 485px;
+    height:70px;
+    width:70px;
+}
+#subMenu .text{
+    margin:-13px -4px;
+    color:#000;
+}
+span{
+    border:15px solid transparent;
+    display:block;
+    margin:0px 7px;
+}
+span.cima{
+    position:absolute;
+    right:0;
+    margin-right:67px;
+    margin-top:34px;
+    border-bottom-color:#f6f6f6;
+    display:none;
+    z-index:3;
+}
+.animated{animation-duration:.4s !important;-webkit-animation-duration:.4s !important}
+
+/*Pop up  - Inicio  */
+@font-face{
+	font-family: 'NexaBold';
+	src: url('../fonts/nexa/Nexa Bold.otf');
+}
+@font-face{
+	font-family: 'NexaLight';
+	src: url('../fonts/nexa/Nexa Light.otf');
+}
+.retanguloMaior{
+	width: 600px;
+	height:340px;
+	background-color: #5a788d;
+}
+.retanguloMaior h2{
+	font-family: "NexaBold";
+	font-size: 45px;
+	color: #fff;
+	text-align: center;
+  padding-top: 15px;
+  margin-bottom: -5px;
+}
+#ejectContato{
+	margin-left:78px;
+	margin-right:2px;
+	margin-top: 20px;
+
+	width: 220px;
+	height: 130px;
+	background: #FFD000;
+}
+#ejectContato p, #voceContato p{
+	font-family: "NexaLight";
+	font-size: 32px;
+	text-align: center;
+	color: #163a50;
+}
+.NexaBold{
+	font-family: "NexaBold";
+	font-size: 32px;
+}
+.endereco{
+	font-family: "NexaLight";
+	font-size:18px;
+	color = black;
+}
+.branca{
+	color: white;
+}
+
+#voceContato{
+	margin-left: 2px;
+	margin-right:78px;
+	margin-top: 20px;
+
+	width: 220px;
+	height: 130px;
+	background: #FFD000;
+}
+.endereco{
+	margin-left: 78px;
+	margin-top: 20px;
+	width:444px;
+	height:56px;
+	background:#5c95b2;
+}
+#opcao1{
+	margin-top:40px;
+	width:600px;
+	height:188px;
+	background-color: #5a788d;
+
+}
+.opcao1Caixa{
+	margin-left: 62px;
+	width: 444px;
+	height:143px;
+	background: #8898A3;
+	padding:0;
+}
+.form-control{
+	border-radius: 0;
+	margin-top: 9px;
+	height: 22px;
+}
+.botao{
+	width:85px !important;
+	height: 32px !important;
+	color: #5a788d !important ;
+	border-radius:0;
+	margin-left:187px;
+	margin-top: 10px;
+}
+
+#opcao2{
+	margin-top:40px;
+	width:600px;
+	height:305px;
+	background-color: #5a788d;
+
+}
+.opcao2Caixa{
+	margin-left: 62px;
+	width: 444px;
+	height:260px;
+	background: #8898A3;
+	padding:0;
+}
+.mensagem{
+	width:444px;
+	height:135px;
+	resize:none;
+	margin-top: 9px;
+}
+.ocultar{
+	display:none;
+}
+.ativa{
+	background: #D9B000!important;
+}
+a.semEfeito:link,a.semEfeito:active,a.semEfeito:visited,a.semEfeito:hover{
+    text-decoration: none;
+    text-decoration-color: black;
+    color:black;
+}

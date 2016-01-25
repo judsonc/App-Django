@@ -5,54 +5,65 @@ from django.template import RequestContext, Context
 from django.template.loader import get_template
 from django.core.mail import EmailMessage, send_mass_mail
 from .models import *
-from .forms import FormContact
+from .forms import *
 #from .forms import PostForm
 
 # Retornando o nome do site e suas informações (atributos)
 def getCompany():
     return Company.objects.all()[0]
 
+def contactEJ(request):   # Formulario add foto
+    if request.method == "POST":
+        formEJ = FormContactEJ(request.POST, prefix='toEJ')
+        if formEJ.is_valid():
+            formEJ.save()
+    formEJ = FormContactEJ(prefix='toEJ')
+    return formEJ
+
+def contactYou(request):   # Formulario add foto
+    if request.method == "POST":
+        formYou = FormContactYou(request.POST, prefix='toYou')
+        if formYou.is_valid():
+            formYou.save()
+    formYou = FormContactYou(prefix='toYou')
+    return formYou
+
 # Create your views here.
 def home(request):
     photos = Banner.objects.all() # Imagens dos slides
-    return render(request, 'news/index.html', {'photos': photos, 'title': "home", 'company': getCompany()})
+    return render(request, 'news/index.html',
+        {'photos': photos, 'title': "home", 'company': getCompany(),
+         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def about(request):
-    return render(request, 'news/sobre/index.html', {'company': getCompany(), 'title': "sobre"}) # Textos do sobre
-
-def contact(request):   # Formulario add foto
-    if request.method == "POST":
-        form = FormContact(request.POST)
-        if form.is_valid():
-            photo = form
-            photo.author = request.user
-            newphoto = Banner(picture = request.FILES['picture'])
-            newphoto.save()
-            return redirect('news.views.home')
-    else:
-        form = FormContact()
-    return render(request, 'news/contato/index.html', {'form': form, 'title': "contato", 'company': getCompany()})
+    return render(request, 'news/sobre/index.html',
+        {'company': getCompany(), 'title': "sobre",
+        'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def portfolio(request):
     clients = Client.objects.all() # Imagens dos slides
-    return render(request, 'news/portfolio/index.html', {'clients': clients, 'title': "portfolio", 'company': getCompany()})
+    return render(request, 'news/portfolio/index.html',
+        {'clients': clients, 'title': "portfolio", 'company': getCompany(),
+        'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def services(request):
     categories = CategoryServices.objects.all()
     services = Service.objects.all()
-    return render(request, 'news/servicos/index.html', {'company': getCompany(),
-                            'title': "servicos", 'categories': categories, 'services': services})
+    return render(request, 'news/servicos/index.html',
+        {'company': getCompany(), 'title': "servicos", 'categories': categories, 'services': services,
+        'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def blog(request):   # Formulario contato
     #news = Post.objects.all()
-    return render(request, 'news/error404/index.html', {'title': "novidades", 'company': getCompany()})
     #return render(request, 'news/novidades/index.html', {'posts': news, 'title': "novidades", 'company': getCompany()})
+    return render(request, 'news/error404/index.html',
+        {'title': "novidades", 'company': getCompany()})
 
 def post_detail(request, pk):
     #post = get_object_or_404(Post, pk=pk)
-    return render(request, 'news/error404/index.html', {'title': "novidades", 'company': getCompany()})
     #return render(request, 'news/novidades/post_detail.html', {'post': post, 'title': "novidades", 'company': getCompany()})
-
+    return render(request, 'news/error404/index.html',
+        {'title': "novidades", 'company': getCompany()})
 
 ''' Form add image
 if request.method == "POST":

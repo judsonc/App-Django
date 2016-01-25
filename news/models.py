@@ -78,17 +78,19 @@ class Client(models.Model):
     def __str__(self):
         return self.name.title() + " | " + self.category.name.title()
 
-class Person(models.Model):
-    name = models.TextField('Nome', max_length=100)
-    phone = models.TextField('Telefone', max_length=11)
+class Mail(models.Model):
+    name = models.CharField('Nome', max_length=50, null=True, blank=True)
+    phone = models.CharField('Telefone', max_length=11, null=True, blank=True)
     mail = models.EmailField('Email', max_length=50)
+    text = models.TextField('Mensagem', max_length=200)
+    created_date = models.DateTimeField('Data de envio', auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Contato'
-        verbose_name_plural = 'Contatos'
+        verbose_name = 'Email'
+        verbose_name_plural = 'Caixa de Emails'
 
     def __str__(self):
-        return self.name
+        return self.mail
 
 # class Mail(models.Model):
 #     mail = models.ForeignKey(Person)
