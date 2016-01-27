@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils import timezone
+from django.contrib import messages
 from django.template import RequestContext, Context
 from django.template.loader import get_template
-from django.core.mail import EmailMessage, send_mass_mail
+from django.core.mail import EmailMessage, send_mail
 from .models import *
 from .forms import *
-#from .forms import PostForm
 
 # Retornando o nome do site e suas informações (atributos)
 def getCompany():
@@ -17,6 +17,7 @@ def contactEJ(request):   # Formulario add foto
         formEJ = FormContactEJ(request.POST, prefix='toEJ')
         if formEJ.is_valid():
             formEJ.save()
+            messages.success(request, 'Enviado com sucesso!')
     formEJ = FormContactEJ(prefix='toEJ')
     return formEJ
 
@@ -25,6 +26,7 @@ def contactYou(request):   # Formulario add foto
         formYou = FormContactYou(request.POST, prefix='toYou')
         if formYou.is_valid():
             formYou.save()
+            messages.success(request, 'Enviado com sucesso!')
     formYou = FormContactYou(prefix='toYou')
     return formYou
 
@@ -57,13 +59,16 @@ def blog(request):   # Formulario contato
     #news = Post.objects.all()
     #return render(request, 'news/novidades/index.html', {'posts': news, 'title': "novidades", 'company': getCompany()})
     return render(request, 'news/error404/index.html',
-        {'title': "novidades", 'company': getCompany()})
+        {'title': "novidades", 'company': getCompany(),
+        'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
+'''
 def post_detail(request, pk):
     #post = get_object_or_404(Post, pk=pk)
     #return render(request, 'news/novidades/post_detail.html', {'post': post, 'title': "novidades", 'company': getCompany()})
     return render(request, 'news/error404/index.html',
         {'title': "novidades", 'company': getCompany()})
+'''
 
 ''' Form add image
 if request.method == "POST":

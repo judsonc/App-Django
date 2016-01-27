@@ -208,3 +208,10 @@ a.semEfeito:link,a.semEfeito:active,a.semEfeito:visited,a.semEfeito:hover{
     text-decoration-color: black;
     color:black;
 }
+/*  Popup Notificação */
+.messages{
+  border: 3px solid red;
+  list-style: none;
+  text-align: center;
+  margin: 100px auto;
+}

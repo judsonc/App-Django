@@ -32,7 +32,7 @@ EMAIL_HOST = 'localhost'
 # Application definition
 
 INSTALLED_APPS = (
-    #'django_admin_bootstrapped',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,6 +83,18 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'db_site',
+#         'USER': 'root',
+#         'PASSWORD': 'teste',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
