@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//getbootstrap.com/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'mobile/css/main.min.css' %}">
     <!-- specific css starts -->
-    <link rel="stylesheet" href="/static/mobile/css/style-{{title}}.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}mobile/css/style-{{title}}.min.css">
     <!-- specific css ends -->
     <!-- The fav icon -->
     <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
@@ -23,7 +23,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
     <!-- topbar starts -->
@@ -96,6 +96,6 @@
     <!-- jQuery -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{% static 'mobile/js/main.min.js' %}"></script>
-    <script src="/static/mobile/js/js-{{title}}.min.js"></script>
+    <script src="{{ STATIC_URL }}mobile/js/js-{{title}}.min.js"></script>
     </body>
 </html>

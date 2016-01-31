@@ -4,3 +4,6 @@ media
 php
 *.pyc
 migrations
+.DS_Store
+__pycache__
+

@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'sitio/css/main.min.css' %}">
     <link rel="stylesheet" href="{% static 'sitio/css/animate.min.css' %}">
     <!-- specific css starts -->
-    <link rel="stylesheet" href="/static/sitio/css/style-{{title}}.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}sitio/css/style-{{title}}.min.css">
     <!-- specific css ends -->
     <!-- The fav icon -->
     <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
@@ -41,7 +41,7 @@
     <header id="menu" class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-inner">
            <a href="{% url 'sitio.views.home' %}">
-             <img id="logo-menu" width="160px" height="50px" class="pull-left" alt="EJECT" src="{% static 'img/logo-eject.png' %}" />
+             <img id="logo-menu" width="160px" height="50px" class="pull-left" alt="EJECT" src="{% static 'sitio/img/logo-eject.png' %}" />
            </a>
            <!-- user dropdown starts -->
            <nav id="redeSocial" class="nav pull-left">
@@ -190,8 +190,8 @@
       {% endblock %}
     </div>
     <!-- jQuery -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{% static 'sitio/js/main.min.js' %}"></script>
-    <script src="/static/sitio/js/js-{{title}}.min.js"></script>
+    <script src="{{ STATIC_URL }}sitio/js/js-{{title}}.min.js"></script>
     </body>
 </html>
