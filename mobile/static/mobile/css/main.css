@@ -1,0 +1,84 @@
+/*html, body{
+    width: 100%;
+    margin-top: 40px;
+    padding: 0;
+    z-index: 0;
+}*/
+/* ----- NON-RESPONSIVE ----- */
+body,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  min-width: 320px;
+}
+/* Reset the container */
+.container {
+    min-width: 320px;
+    width: 100% !important;
+    max-width: 1300px;
+    padding: 0;
+}
+/* ----- ENDS NON-RESPONSIVE ----- */
+body{
+    background-color:#f6f6f6;
+    margin-top: 65px;
+}
+#menu{
+    background:  #f6f6f6;
+    border-radius: 0px;
+    padding: 5px 15px;
+    border: none;
+}
+#subMenu{
+    z-index:2;
+    margin: 56px 10px 0 0;
+    background: #f6f6f6;
+    width: 280px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    padding-top: 10px;
+    text-align: center;
+    display: none;
+    -webkit-box-shadow: 0 0 15px 0 #666666;
+                box-shadow: 0 0 15px 0 #666666;
+}
+#subMenu a{
+    text-decoration: none;
+}
+#subMenu li{
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+}
+#subMenu .icon{
+    background-image:url('http://ejectufrn.com.br/mobile/components/img/sub-menu.svg');
+    background-size: 50px 355px;
+    height: 51px;
+    width: 50px;
+}
+#subMenu .text{
+    margin:-13px -8px;
+    color: #000;
+}
+#icon-subMenu{
+    background-image: url('http://ejectufrn.com.br/mobile/components/img/redes-sociais.svg');
+    background-size:50px 268px;
+    height:51px;
+    width:50px;
+    margin-right: -5px;
+    margin-left: 0px;
+}
+span{
+    border: 15px solid transparent;
+    display: block;
+    margin: 0 15px;
+}
+span.cima{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 30px;
+    border-bottom-color: #f6f6f6;
+    display: none;
+    z-index:3;
+}

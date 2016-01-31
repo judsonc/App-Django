@@ -1,0 +1,191 @@
+/*
+ *{
+    margin:0px;
+    padding: 0px;
+}
+body{
+    background-color: #5a788d;
+
+}
+.site{
+    height:400px;
+    margin-top:100px;
+}
+.contato{
+    background-color:#8898a3 ;
+    width: 450px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+input{
+    border-radius: 50px;
+    width:100%;
+    margin-top: 3px;
+}
+#contatoMsg{
+    border-radius:15px 15px 0px 0px;
+    width: 100%;
+
+}
+.btn{
+    width: 80px;
+    border-radius: 50px;
+    margin: 5px 40% ;
+          }
+textarea{
+    resize:none;
+    padding: 5px 0px 0px 5px;
+}
+*/
+
+
+
+@font-face{
+	font-family: 'NexaBold';
+	src: url('../fonts/nexa/Nexa Bold.otf');
+}
+@font-face{
+	font-family: 'NexaLight';
+	src: url('../fonts/nexa/Nexa Light.otf');
+}
+
+.retanguloMaior{
+	width: 320px!important;
+	height:auto;
+	background-color: #5a788d;
+	padding-bottom: 20px;
+}
+h2{
+	font-family: "NexaBold";
+	font-size: 45;
+	color: #fff;
+	text-align: center;
+}
+#ejectContato{
+	margin-left: 8px;
+	margin-right:2px;
+	margin-top: 20px;
+
+	padding-top:5px;
+
+	width: 135px;
+	height: 150px;
+	background: #FFD000;
+
+}
+#ejectContato p, #voceContato p{
+	font-family: "NexaLight";
+	font-size: 20px;
+	text-align: center;
+	color: #163a50;
+}
+.NexaBold{
+	font-family: "NexaBold";
+	font-size: 32px;
+	text-align: center;
+}
+.endereco{
+	font-family: "NexaLight";
+	font-size:18px;
+	color: white;
+	padding-top:5px;
+	text-align: center;
+}
+.preto{
+	color: black;
+}
+
+
+#voceContato{
+	margin-left: 2px;
+	margin-right:0px;
+	margin-top: 20px;
+	padding:0px;
+	padding-top:5px;
+
+
+	width: 135px;
+	height: 150px;
+	background: #FFD000;
+}
+#voceContato p{
+    margin-top: -10px;
+    margin-bottom: 0px;
+
+}
+.endereco{
+	margin-left: 0px;
+	margin-top: 20px;
+	width:auto;
+	height:auto;
+	background:#5c95b2;
+}
+
+
+#opcao1{
+	margin-top:40px;
+	width: 320px;
+	height:168px;
+	background-color: #5a788d;
+	padding-left: 5px;
+
+}
+
+.opcao1Caixa{
+	width: auto;
+	height:143px;
+	background: #8898A3;
+	padding:0px;
+
+}
+form{
+	width: 310px;
+}
+.form-control{
+
+	border-radius: 0;
+	margin-top: 9px;
+	height: 22px;
+	resize:none;
+}
+.botao{
+	width:85px !important;
+	height: 32px !important;
+	color: #5a788d !important ;
+	border-radius:0;
+	margin-left: 115px;
+	margin-top: 10px;
+}
+
+#opcao2{
+	margin-top:40px;
+	width:320px;
+	height:285px;
+	background-color: #5a788d;
+	padding:5px;
+
+}
+.opcao2Caixa{
+	width: auto;
+	height:260px;
+	background: #8898A3;
+	padding:0px;
+}
+.mensagem{
+	width: auto;
+	height:135px;
+
+	margin-top: 9px;
+}
+.ocultar{
+	display:none;
+}
+.exibir{
+	background: #D9B000!important;
+}
+a.semEfeito:link,a.semEfeito:active,a.semEfeito:visited,a.semEfeito:hover{
+    text-decoration: none;
+    text-decoration-color: black;
+    color:black;
+}

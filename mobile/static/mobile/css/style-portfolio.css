@@ -1,0 +1,138 @@
+@font-face{
+	font-family: 'Nexa Bold';
+	src: url('../fonts/nexa/Nexa Bold.otf');
+}
+@font-face{
+	font-family: 'Nexa Light';
+	src: url('../fonts/nexa/Nexa Light.otf');
+}
+
+.menuLateralFixo{
+	position: fixed;
+}
+/*
+.orelha{
+	border-left: 30px solid #C00;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	float:left;
+	
+	width:0;
+    height:0;	
+    border:15px solid transparent;
+	margin-left: -15px;
+    display:block;
+	border-left-color:#4766dd;
+	border-top-color:#4766dd;
+    width: 208.8888px;
+    margin-top: -18px;
+	
+	border-left: 15px solid #C00;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	float:left;
+	margin-bottom:-10px;
+	z-index:10;
+	
+}*/
+/*
+.corpo{
+	width: 180px;	
+    height: 400px;
+	padding-left: 0;
+	padding-top: 0px;
+	margin-left: 63px;
+	background: #889ae0;
+	
+	
+}
+*/
+.menuTexto{
+	top: 30px;
+	left: 90px;
+	color: white;
+	font-size: 20px;
+	/*line-height: 2;*/
+	font-family: 'Nexa Bold', sans-serif;
+	background: #889ae0;
+	/*width:250px;*/
+	height:180px;
+	padding: 10px 10px 0 10px;
+	margin: 0;
+}
+.menuTexto h2{
+	text-align: center;
+}
+.menuTexto a{
+	text-decoration: none;
+	color: white;
+	font-family: 'Nexa Light', sans-serif;
+
+}
+.menuTexto a:hover{
+	color: lightgray;
+	font-family: 'Nexa Light', sans-serif;
+}
+.col-xs-10{
+	padding-right:0;
+	padding-left:10px;
+}
+.col-xs-12{
+	margin-top:10px;
+	padding:0px;
+}
+span.orelha{
+	
+	width:0;
+    height:209px;
+    border:15px solid transparent;
+	border-right-color:#4766dd;
+	position: absolute;
+	z-index:2;
+	border-left-width:0;
+	margin:0px;
+	margin-top:-14px;
+	margin-left:1px;
+	
+}
+div.bandeira{
+    width:0;
+    height:0;
+    border:90px solid transparent;
+
+    display:block;
+	border-top-color:#889ae0;
+    border-left-color:#889ae0;
+    border-bottom-color:#889ae0;
+	border-left-width:0px;
+	border-right-width:40px;
+	padding-left:0;
+	padding-right:0;
+	
+}
+.containerImg{
+	margin-top:15px;
+	padding: 0;
+}
+
+
+.colImg{
+	padding-top: 10px;
+}
+.imgPort{
+	width: 100%;
+	padding: 5px 0px 5px 0px;
+}
+.col-xs-6{
+	padding:2.5px 5px 0px 4px;
+}
+
+.ver{
+	display:none;
+}
+.mostrarImagem{
+	display: block!important;
+}
+
+
+

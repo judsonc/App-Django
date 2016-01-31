@@ -1,6 +1,6 @@
 env
 media
-static
 *.php
 php
 *.pyc
+migrations
