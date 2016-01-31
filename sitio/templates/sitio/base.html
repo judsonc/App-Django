@@ -14,7 +14,7 @@
     <script src="{% static 'sitio/js/redirection-mobile.js' %}"></script>
     <script>
     SA.redirection_mobile ({
-        mobile_url : "192.168.1.40:8000/mobile",
+        mobile_url : "judsonc.pythonanywhere.com/mobile",
         mobile_prefix : "https",
         keep_path : true,
         keep_query : true
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'sitio/css/main.min.css' %}">
     <link rel="stylesheet" href="{% static 'sitio/css/animate.min.css' %}">
     <!-- specific css starts -->
-    <link rel="stylesheet" href="{{ STATIC_URL }}sitio/css/style-{{title}}.min.css">
+    <link rel="stylesheet" href="{% static '' %}sitio/css/style-{{title}}.min.css">
     <!-- specific css ends -->
     <!-- The fav icon -->
     <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
@@ -192,6 +192,6 @@
     <!-- jQuery -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{% static 'sitio/js/main.min.js' %}"></script>
-    <script src="{{ STATIC_URL }}sitio/js/js-{{title}}.min.js"></script>
+    <script src="{% static '' %}sitio/js/js-{{title}}.min.js"></script>
     </body>
 </html>

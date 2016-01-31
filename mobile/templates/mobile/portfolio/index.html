@@ -16,11 +16,11 @@
   			<div class="col-xs-2 bandeira"></div>
   			<div  class="containerImg col-xs-12">
   				{% for client in clients %}
-          <a href="{{ client.url }}" target="_blank">
+                <a href="http://{{ client.url }}" target="_blank">
   					<div class="colImg col-xs-6 {{ client.category.name.lower }}">
   						<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
   					</div>
-          </a>
+                </a>
   				{% endfor %}
   			</div>
 		</div>

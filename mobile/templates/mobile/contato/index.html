@@ -20,12 +20,10 @@
       </a>
     </div>
     <div class="endereco col-xs-12">
-      <p> <font class="preto">Endereço: </font> Rua Capitão-Mor Gouveia, IMD Sala: B415
-       Lagoa Nova, CEP: 59075-050
-      </p>
-    </div>
+  		<p><font class="branca">Endereço:</font> {{ company.address }}, {{ company.neighboor.title }}, CEP: {{ company.zip.title }}</p>
+  	</div>
     <div id="opcao1" class="col-xs-12 ocultar">
-					<div class="col-xs-12 opcao1Caixa">
+			<div class="col-xs-12 opcao1Caixa">
               <form class="form-horizontal" method="post">{% csrf_token %}
                   <fieldset>
                       {% for field in formEJ %}

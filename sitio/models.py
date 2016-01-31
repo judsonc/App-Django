@@ -68,7 +68,7 @@ class Service(models.Model):
 class Client(models.Model):
     author = models.ForeignKey('auth.User', default=1)
     name = models.CharField('Nome', max_length=100)
-    url = models.CharField('URL', max_length=200)
+    url = models.CharField('URL', max_length=200, null=True, blank=True)
     picture = models.ImageField('Foto (325x190)*', upload_to='img/portfolio')
     category = models.ForeignKey(CategoryServices, verbose_name="Categoria")
     created_date = models.DateTimeField('Data de envio', auto_now_add=True)
