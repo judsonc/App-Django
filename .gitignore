@@ -1,9 +1,6 @@
-*.pyc
-__pycache__
-site
-*.sqlite3
-.DS_Store
-img
+env
 media
+static
 *.php
-migrations
+php
+*.pyc

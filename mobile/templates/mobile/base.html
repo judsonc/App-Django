@@ -1,0 +1,101 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ title.title }} | {{ company.name }}</title>
+    <meta name="description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia.">
+    <meta name="author" content="EJECT - Empresa Júnior da Escola de Ciências e Tecnologia">
+    <meta name="og:description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia."/>
+    <meta name="og:author" content="EJECT - Empresa Júnior da Escola de Ciências e Tecnologia"/>
+    <meta name="og:title" content="{{ title.title }} | {{ company.name }}"/>
+    <meta name="og:url" content="https://ejectufrn.com.br/"/>
+    <!-- The styles -->
+    <link rel="stylesheet" href="//getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'mobile/css/main.min.css' %}">
+    <!-- specific css starts -->
+    <link rel="stylesheet" href="/static/mobile/css/style-{{title}}.min.css">
+    <!-- specific css ends -->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
+    <!-- jQuery -->
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- topbar starts -->
+    <header id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-inner">
+           <a href="{% url 'mobile.views.home' %}">
+             <img id="logo-menu" width="160px" height="50px" class="pull-left" alt="EJECT" src="{% static 'sitio/img/logo-eject.png' %}" />
+           </a>
+           <!-- user dropdown starts -->
+            <div class="btn-group pull-right ">
+                <a id="menuSub" href="#">
+                    <span id="icon-subMenu" style="background-position:-65px 325px;"></span>
+                </a>
+            </div>
+          	<span class="cima animated slideInRight"></span>
+          	<div id="subMenu" class="animated fadeInRightBig">
+              <li>
+                  <a href="{% url 'mobile.views.home' %}">
+                      <span class="icon" style="background-position:-15px 632px;"></span>
+                      <span class="text">Home</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="{% url 'mobile.views.about' %}">
+                      <span class="icon" style="background-position:-15px 393px;"></span>
+                      <span class="text">Sobre</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'mobile.views.services' %}">
+                      <span class="icon" style="background-position:-15px 452px;"></span>
+                      <span class="text">Serviços</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'mobile.views.portfolio' %}">
+                      <span class="icon" style="background-position:-15px 867px;"></span>
+                      <span class="text">Portfólio</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'mobile.views.blog' %}">
+                      <span class="icon" style="background-position:-15px 572px;"></span>
+                      <span class="text">Novidades</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'mobile.views.contact' %}">
+                      <span class="icon" style="background-position:-15px 693px;"></span>
+                      <span class="text">Contato</span>
+                  </a>
+              </li>
+           </div>
+        </div>
+    </header>
+    <!-- topbar ends -->
+    {% if messages %}
+    <div class="modalpopup animated bounceIn">
+        <ul class="messages text-center">
+            {% for message in messages %}
+            <li{% if message.tags %} class="bg-success {{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <!-- jQuery -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{% static 'mobile/js/main.min.js' %}"></script>
+    <script src="/static/mobile/js/js-{{title}}.min.js"></script>
+    </body>
+</html>

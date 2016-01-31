@@ -1,0 +1,197 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ title.title }} | {{ company.name }}</title>
+    <meta name="description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia.">
+    <meta name="author" content="EJECT - Empresa Júnior da Escola de Ciências e Tecnologia">
+    <meta name="og:description" content="Site da EJECT - Empresa Júnior da Escola de Ciências e Tecnologia."/>
+    <meta name="og:author" content="EJECT - Empresa Júnior da Escola de Ciências e Tecnologia"/>
+    <meta name="og:title" content="{{ title.title }} | {{ company.name }}"/>
+    <meta name="og:url" content="https://ejectufrn.com.br/"/>
+    <!-- Check Mobile or Desktop -->
+    <script src="{% static 'sitio/js/redirection-mobile.js' %}"></script>
+    <script>
+    SA.redirection_mobile ({
+        mobile_url : "192.168.1.40:8000/mobile",
+        mobile_prefix : "https",
+        keep_path : true,
+        keep_query : true
+    });
+    </script>
+    <!-- The styles -->
+    <link rel="stylesheet" href="//getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'sitio/css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sitio/css/animate.min.css' %}">
+    <!-- specific css starts -->
+    <link rel="stylesheet" href="/static/sitio/css/style-{{title}}.min.css">
+    <!-- specific css ends -->
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
+    <!-- jQuery -->
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- topbar starts -->
+    <header id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-inner">
+           <a href="{% url 'sitio.views.home' %}">
+             <img id="logo-menu" width="160px" height="50px" class="pull-left" alt="EJECT" src="{% static 'img/logo-eject.png' %}" />
+           </a>
+           <!-- user dropdown starts -->
+           <nav id="redeSocial" class="nav pull-left">
+                <li>
+                    <a href="https://fb.com/ejectrn" target="_blank">
+                        <span class="icon" style="background-position:-65px 442px;"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/EJECTUFRN" target="_blank">
+                        <span class="icon" style="background-position:-65px 653px;"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/ejectufrn/" target="_blank">
+                        <span class="icon" style="background-position:-65px 498px;"></span>
+                    </a>
+                </li>
+            </nav>
+            <div class="btn-group pull-right ">
+                <a id="menuSub" href="#">
+                    <span id="icon-subMenu" style="background-position:-65px 325px;"></span>
+                </a>
+            </div>
+          	<span class="cima animated slideInRight"></span>
+          	<div id="subMenu" class="animated fadeInRightBig">
+              <li>
+                  <a href="{% url 'sitio.views.home' %}">
+                      <span class="icon" style="background-position:-30px 386px;"></span>
+                      <span class="text">Home</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="{% url 'sitio.views.about' %}">
+                      <span class="icon" style="background-position:-30px 55px;"></span>
+                      <span class="text">Sobre</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'sitio.views.services' %}">
+                      <span class="icon" style="background-position:-30px 137px;"></span>
+                      <span class="text">Serviços</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'sitio.views.portfolio' %}">
+                      <span class="icon" style="background-position:-30px 220px;"></span>
+                      <span class="text">Portfólio</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="{% url 'sitio.views.blog' %}">
+                      <span class="icon" style="background-position:-30px 303px;"></span>
+                      <span class="text">Novidades</span>
+                  </a>
+             </li>
+             <li>
+                  <a href="#" data-toggle="modal" data-target="#contatos">
+                      <span class="icon" style="background-position:-30px -15px;"></span>
+                      <span class="text">Contato</span>
+                  </a>
+              </li>
+           </div>
+        </div>
+    </header>
+    <!-- topbar ends -->
+    <div class="modal fade" id="contatos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  		<div class="modal-dialog" role="document">
+			  <div class="retanguloMaior">
+  				<h2>Contato</h2>
+  				<a href="#" id="entrarContatoEject" class="semEfeito">
+  					<div id="ejectContato" class="col-xs-6">
+  						<p>A <font class="NexaBold">EJECT</font> entra em contato</p>
+  					</div>
+  				</a>
+  				<a href="#" id="entrarContatoVoce" class="semEfeito">
+  					<div id="voceContato" class="col-xs-6">
+  						<p>&nbsp;<font class="NexaBold">Você</font> &nbsp;&nbsp; entra em contato</p>
+  					</div>
+  				</a>
+  				<div class="endereco col-xs-12">
+  					<p><font class="branca">Endereço:</font> {{ company.address }}, {{ company.neighboor.title }}, CEP: {{ company.zip.title }}</p>
+  				</div>
+  				<div id="opcao1" class="col-xs-12 ocultar">
+  					<div class="col-xs-12 opcao1Caixa">
+  						<form method="post" class="form-horizontal">{% csrf_token %}
+                  <fieldset>
+                      {% for field in formYou %}
+                          {% if field.errors %}
+                              <div>{{ field }}
+                                  <span>
+                                      {% for error in field.errors %}{{ error }}{% endfor %}
+                                  </span>
+                              </div>
+                          {% else %}
+                              <div>{{ field }}
+                                  {% if field.help_text %}
+                                      <p><small>{{ field.help_text }}</small></p>
+                                  {% endif %}
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </fieldset>
+  								<button type="submit" class="btn botao">Enviar</button>
+  						</form>
+  					</div>
+  				</div>
+  				<div id="opcao2" class="col-xs-12 ocultar">
+  					<div class="col-xs-12 opcao2Caixa">
+  						<form method="post" class="form-horizontal">{% csrf_token %}
+                  <fieldset>
+                      {% for field in formEJ %}
+                          {% if field.errors %}
+                              <div>{{ field }}
+                                    <span>
+                                        {% for error in field.errors %}{{ error }}{% endfor %}
+                                    </span>
+                              </div>
+                          {% else %}
+                              <div>{{ field }}
+                                  {% if field.help_text %}
+                                      <p><small>{{ field.help_text }}</small></p>
+                                  {% endif %}
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </fieldset>
+  								<button type="submit" class="btn botao">Enviar</button>
+  						</form>
+  					</div>
+  				</div>
+  		  </div>
+  		</div>
+    </div>
+    {% if messages %}
+    <div class="modalpopup animated bounceIn">
+        <ul class="messages text-center">
+            {% for message in messages %}
+            <li{% if message.tags %} class="bg-success {{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <!-- jQuery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{% static 'sitio/js/main.min.js' %}"></script>
+    <script src="/static/sitio/js/js-{{title}}.min.js"></script>
+    </body>
+</html>
