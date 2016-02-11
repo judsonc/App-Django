@@ -17,13 +17,13 @@
 			<span class="bandeira"></span>
 			</div>
 			<div  class="containerImg col-xs-9">
-				{% for client in clients %}
-        <a href="{{ client.url }}" target="_blank">
+			{% for client in clients %}
+                {% if client.url %}<a href="http://{{ client.url }}" target="_blank">{% endif %}
 					<div class="colImg col-xs-4 {{ client.category.name.lower }}">
 						<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
 					</div>
-        </a>
-				{% endfor %}
+                {% if client.url %}</a>{% endif %}
+			{% endfor %}
 			</div>
 		</div>
   {% endblock %}

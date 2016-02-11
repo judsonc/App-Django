@@ -27,16 +27,17 @@
     <!-- specific css starts -->
     <link rel="stylesheet" href="{% static '' %}sitio/css/style-{{title}}.min.css">
     <!-- specific css ends -->
-    <!-- The fav icon -->
-    <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
     <!-- jQuery -->
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{% static 'sitio/js/main.min.js' %}"></script>
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="{% static 'sitio/img/favicon.png' %}" type="image/png" >
 </head>
-<body>
+<body{% if messages %} onload='notimsg()' {% endif %}>
     <!-- topbar starts -->
     <header id="menu" class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-inner">
@@ -52,18 +53,18 @@
                 </li>
                 <li>
                     <a href="https://www.youtube.com/EJECTUFRN" target="_blank">
-                        <span class="icon" style="background-position:-65px 653px;"></span>
+                        <span class="icon" style="background-position:-65px 650px;"></span>
                     </a>
                 </li>
                 <li>
                     <a href="https://instagram.com/ejectufrn/" target="_blank">
-                        <span class="icon" style="background-position:-65px 498px;"></span>
+                        <span class="icon" style="background-position:-65px 502px;"></span>
                     </a>
                 </li>
             </nav>
             <div class="btn-group pull-right ">
                 <a id="menuSub" href="#">
-                    <span id="icon-subMenu" style="background-position:-65px 325px;"></span>
+                    <span id="icon-subMenu" style="background-position:-65px 322px;"></span>
                 </a>
             </div>
           	<span class="cima animated slideInRight"></span>
@@ -114,7 +115,7 @@
   				<h2>Contato</h2>
   				<a href="#" id="entrarContatoEject" class="semEfeito">
   					<div id="ejectContato" class="col-xs-6">
-  						<p>A <font class="NexaBold">EJECT</font> entra em contato</p>
+  						<p><font class="NexaBold">EJECT</font> entra em contato</p>
   					</div>
   				</a>
   				<a href="#" id="entrarContatoVoce" class="semEfeito">
@@ -152,46 +153,39 @@
   				<div id="opcao2" class="col-xs-12 ocultar">
   					<div class="col-xs-12 opcao2Caixa">
   						<form method="post" class="form-horizontal">{% csrf_token %}
-                  <fieldset>
-                      {% for field in formEJ %}
-                          {% if field.errors %}
-                              <div>{{ field }}
-                                    <span>
-                                        {% for error in field.errors %}{{ error }}{% endfor %}
-                                    </span>
-                              </div>
-                          {% else %}
-                              <div>{{ field }}
-                                  {% if field.help_text %}
-                                      <p><small>{{ field.help_text }}</small></p>
+                          <fieldset>
+                              {% for field in formEJ %}
+                                  {% if field.errors %}
+                                      <div>{{ field }}
+                                            <span>
+                                                {% for error in field.errors %}{{ error }}{% endfor %}
+                                            </span>
+                                      </div>
+                                  {% else %}
+                                      <div>{{ field }}
+                                          {% if field.help_text %}
+                                              <p><small>{{ field.help_text }}</small></p>
+                                          {% endif %}
+                                      </div>
                                   {% endif %}
-                              </div>
-                          {% endif %}
-                      {% endfor %}
-                  </fieldset>
-  								<button type="submit" class="btn botao">Enviar</button>
+                              {% endfor %}
+                          </fieldset>
+          				  <button type="submit" class="btn botao">Enviar</button>
   						</form>
   					</div>
   				</div>
   		  </div>
   		</div>
-    </div>
-    {% if messages %}
-    <div class="modalpopup animated bounceIn">
-        <ul class="messages text-center">
-            {% for message in messages %}
-            <li{% if message.tags %} class="bg-success {{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
+    </div>{% if messages %}{% for message in messages %}
+    <div id="noti-msg" class="navbar-fixed-bottom modalpopup animated bounceInDown{% if message.tags %} {{ message.tags }} {% endif %}">
+        <span class="text-center">{{ message }}</span>
+    </div>{% endfor %}{% endif %}
     <div class="container">
       {% block content %}
       {% endblock %}
     </div>
     <!-- jQuery -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="{% static 'sitio/js/main.min.js' %}"></script>
     <script src="{% static '' %}sitio/js/js-{{title}}.min.js"></script>
     </body>
 </html>

@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 class Company(models.Model):
-    author = models.ForeignKey('auth.User', default=1)
+    author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=100)
     about = models.TextField('Quem somos')
     mission = models.TextField('Missão')
@@ -23,7 +23,7 @@ class Company(models.Model):
         return self.name
 
 class Banner(models.Model):
-    author = models.ForeignKey('auth.User', default=1)
+    author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=100)
     picture = models.ImageField('Foto (DESKTOP)*', upload_to='img/banner')
     picture_small = models.ImageField('Foto (MOBILE)', upload_to='img/banner')
@@ -37,7 +37,7 @@ class Banner(models.Model):
         return self.name
 
 class CategoryServices(models.Model):
-    author = models.ForeignKey('auth.User', default=1)
+    author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=20)
     picture = models.ImageField('Foto (150x120)*', upload_to='img/service')
     text = models.TextField('Descrição', max_length=175)
@@ -51,7 +51,7 @@ class CategoryServices(models.Model):
         return self.name
 
 class Service(models.Model):
-    author = models.ForeignKey('auth.User', default=1)
+    author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=20)
     picture = models.ImageField('Foto (150x120)*', upload_to='img/service')
     text = models.TextField('Descrição', max_length=175)
@@ -66,7 +66,7 @@ class Service(models.Model):
         return self.name + " | " + self.category.name
 
 class Client(models.Model):
-    author = models.ForeignKey('auth.User', default=1)
+    author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=100)
     url = models.CharField('URL', max_length=200, null=True, blank=True)
     picture = models.ImageField('Foto (325x190)*', upload_to='img/portfolio')

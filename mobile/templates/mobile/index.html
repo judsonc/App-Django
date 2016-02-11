@@ -1,9 +1,7 @@
 {% extends 'mobile/base.html' %}
   {% block content %}
-      <script>
-      document.createElement("picture"); /* Picture element HTML5 shiv */
-      </script>
-      <script src="https://cdn.rawgit.com/scottjehl/picturefill/master/dist/picturefill.min.js" async></script>
+      <!--script>document.createElement("picture"); /* Picture element HTML5 shiv */</script>
+      <script src="https://cdn.rawgit.com/scottjehl/picturefill/master/dist/picturefill.min.js" async></script-->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -15,11 +13,13 @@
         <div class="carousel-inner" role="listbox">
           {% for photo in photos %}
              <div class="item {% if forloop.first %} active {% endif %}">
-               <picture>
+               <div class="picture-small" style="background-image:url('{{ photo.picture_small.url }}'); display:none"></div>
+               <div class="picture" style="background-image:url('{{ photo.picture.url }}')"></div>
+               <!--picture>
             			<source srcset="{{ photo.picture_small.url }}" media="(max-width: 767px) and (orientation: portrait)">
             			<source srcset="{{ photo.picture.url }}">
        	          <img width="100%" height="100%" src="{{ photo.picture.url }}" alt="{{ photo.name }}">
-               </picture>
+               </picture-->
        	    </div>
           {% endfor %}
            <!-- Left and right controls -->
@@ -32,5 +32,5 @@
       	    <span class="sr-only">Next</span>
            </a>
         </div>
-    	</div>
+	  </div>
   {% endblock %}

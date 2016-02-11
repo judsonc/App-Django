@@ -35,11 +35,11 @@
            <!-- user dropdown starts -->
             <div class="btn-group pull-right ">
                 <a id="menuSub" href="#">
-                    <span id="icon-subMenu" style="background-position:-65px 325px;"></span>
+                    <span id="icon-subMenu" style="background-position:-65px 323px;"></span>
                 </a>
             </div>
-          	<span class="cima animated slideInRight"></span>
-          	<div id="subMenu" class="animated fadeInRightBig">
+          	<span class="cima"></span>
+          	<div id="subMenu">
               <li>
                   <a href="{% url 'mobile.views.home' %}">
                       <span class="icon" style="background-position:-15px 632px;"></span>
@@ -80,15 +80,6 @@
         </div>
     </header>
     <!-- topbar ends -->
-    {% if messages %}
-    <div class="modalpopup animated bounceIn">
-        <ul class="messages text-center">
-            {% for message in messages %}
-            <li{% if message.tags %} class="bg-success {{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
     <div class="container">
       {% block content %}
       {% endblock %}

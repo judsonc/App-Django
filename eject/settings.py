@@ -25,13 +25,17 @@ SECRET_KEY = 'v((xg%&h4#ad0ybff#14ii53ij*3jtb854+lck7(tnq7(on+5y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+# Settings Email
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
 INSTALLED_APPS = [
-    #'django_admin_bootstrapped',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

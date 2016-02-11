@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render, get_object_or_404, redirect, render_to_response
-from django.utils import timezone
+from django.shortcuts import render #, get_object_or_404, redirect, render_to_response
+#from django.utils import timezone
+#from django.template import RequestContext, Context
+#from django.template.loader import get_template
 from django.contrib import messages
-from django.template import RequestContext, Context
-from django.template.loader import get_template
+from django.core.mail import send_mail
 from sitio.models import *
 from sitio.forms import *
 
@@ -15,16 +16,18 @@ def getCompany():
     else:
         return "None"
 
-def contactEJ(request):   # Formulario add foto
+def contactEJ(request):
     if request.method == "POST":
         formEJ = FormContactEJ(request.POST, prefix='toEJ')
         if formEJ.is_valid():
             formEJ.save()
+            #send_mail('Subject here 1', 'Here is the message. contactEJ', 'from@example.com',
+            #         ['to@example.com'], fail_silently=False)
             messages.success(request, 'Email enviado com sucesso!')
     formEJ = FormContactEJ(prefix='toEJ')
     return formEJ
 
-def contactYou(request):   # Formulario add foto
+def contactYou(request):
     if request.method == "POST":
         formYou = FormContactYou(request.POST, prefix='toYou')
         if formYou.is_valid():

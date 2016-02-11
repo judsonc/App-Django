@@ -1,29 +1,25 @@
 {% extends 'mobile/base.html' %}
   {% load staticfiles %}
   {% block content %}
-  <div class="container retanguloMaior">
-    <h2>Contato</h2>
-    <div class="col-xs-12">
-      <a href="#" id="entrarContatoEject" class="semEfeito" >
-        <div id="ejectContato" class="col-xs-6">
-          <p>
-            A <font class="NexaBold">EJECT</font> entra em contato
-          </p>
+        <div class="container retanguloMaior">
+        <h2>Contato</h2>
+        <div class="col-xs-12">
+          <a href="#" id="entrarContatoEject" class="semEfeito" >
+            <div id="ejectContato" class="col-xs-6">
+              <p><font class="NexaBold">EJECT</font> entra em contato</p>
+            </div>
+          </a>
+          <a href="#" id="entrarContatoVoce" class="semEfeito">
+            <div id="voceContato" class="col-xs-6">
+              <p><font class="NexaBold">Você</font>&nbsp;&nbsp;&nbsp; entra em contato</p>
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="#" id="entrarContatoVoce" class="semEfeito">
-        <div id="voceContato" class="col-xs-6">
-          <P>
-            <br>&nbsp;&nbsp;&nbsp;<font class="NexaBold">Você</font>&nbsp;&nbsp;&nbsp;  entra em contato
-          </P>
-        </div>
-      </a>
-    </div>
-    <div class="endereco col-xs-12">
-  		<p><font class="branca">Endereço:</font> {{ company.address }}, {{ company.neighboor.title }}, CEP: {{ company.zip.title }}</p>
-  	</div>
-    <div id="opcao1" class="col-xs-12 ocultar">
-			<div class="col-xs-12 opcao1Caixa">
+        <div class="endereco col-xs-12">
+          	<p><font class="branca">Endereço:</font> {{ company.address }}, {{ company.neighboor.title }}, CEP: {{ company.zip.title }}</p>
+          </div>
+        <div id="opcao1" class="col-xs-12 ocultar">
+        	<div class="col-xs-12 opcao1Caixa">
               <form class="form-horizontal" method="post">{% csrf_token %}
                   <fieldset>
                       {% for field in formEJ %}
@@ -52,33 +48,36 @@
             </div>
         </div>
         <div id="opcao2" class="col-xs-12 ocultar">
-    					<div class="col-xs-12 opcao2Caixa">
-                  <form class="form-horizontal" method="post">{% csrf_token %}
-                      <fieldset>
-                          {% for field in formYou %}
-                              {% if field.errors %}
-                                  <div>
-                                      <label class="control-label">{{ field.label }}</label>
-                                      <div>{{ field }}
-                                          <span>
-                                              {% for error in field.errors %}{{ error }}{% endfor %}
-                                          </span>
-                                      </div>
+        	<div class="col-xs-12 opcao2Caixa">
+              <form class="form-horizontal" method="post">{% csrf_token %}
+                  <fieldset>
+                      {% for field in formYou %}
+                          {% if field.errors %}
+                              <div>
+                                  <label class="control-label">{{ field.label }}</label>
+                                  <div>{{ field }}
+                                      <span>
+                                          {% for error in field.errors %}{{ error }}{% endfor %}
+                                      </span>
                                   </div>
-                              {% else %}
-                                  <div>
-                                      <div>{{ field }}
-                                          {% if field.help_text %}
-                                              <p><small>{{ field.help_text }}</small></p>
-                                          {% endif %}
-                                      </div>
+                              </div>
+                          {% else %}
+                              <div>
+                                  <div>{{ field }}
+                                      {% if field.help_text %}
+                                          <p><small>{{ field.help_text }}</small></p>
+                                      {% endif %}
                                   </div>
-                              {% endif %}
-                          {% endfor %}
-                      </fieldset>
-                      <button type="submit" class="btn botao">Enviar</button>
-                  </form>
-                </div>
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                  </fieldset>
+                  <button type="submit" class="btn botao">Enviar</button>
+              </form>
             </div>
-      </div>
+        </div>
+        </div>{% if messages %}{% for message in messages %}
+        <div class="navbar-fixed-bottom modalpopup{% if message.tags %} {{ message.tags }} {% endif %}">
+            <span class="text-center">{{ message }}</span>
+        </div>{% endfor %}{% endif %}
     {% endblock %}

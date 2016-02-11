@@ -2,26 +2,26 @@
   {% load staticfiles %}
   {% block content %}
   	<div class="col-xs-12">
-				<span class="orelha"></span>
+		<span class="orelha"></span>
         <div class="col-xs-10">
-  				<div class="menuTexto">
-  					<h2>Portfólio</h2>
-  					<hr>
-            <a href="#" id="tudo" class="col-xs-6"> >&nbsp;Tudo </a>
-  					<a href="#" id="site" class="col-xs-6"> >&nbsp;Sites </a>
-  					<a href="#" id="programa" class="col-xs-6"> >&nbsp;Programas </a>
-  					<a href="#" id="evento" class="col-xs-6"> >&nbsp;Eventos </a>
-  				</div>
-        </div>
-  			<div class="col-xs-2 bandeira"></div>
-  			<div  class="containerImg col-xs-12">
-  				{% for client in clients %}
-                <a href="http://{{ client.url }}" target="_blank">
-  					<div class="colImg col-xs-6 {{ client.category.name.lower }}">
-  						<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
-  					</div>
-                </a>
-  				{% endfor %}
+  			<div class="menuTexto">
+  				<h2>Portfólio</h2>
+  				<hr>
+                <a href="#" id="tudo" class="col-xs-6"> >&nbsp;Tudo </a>
+  				<a href="#" id="site" class="col-xs-6"> >&nbsp;Sites </a>
+  				<a href="#" id="programa" class="col-xs-6"> >&nbsp;Programas </a>
+  				<a href="#" id="evento" class="col-xs-6"> >&nbsp;Eventos </a>
   			</div>
-		</div>
+        </div>
+  		<div class="col-xs-2 bandeira"></div>
+  		<div  class="containerImg col-xs-12">
+  		{% for client in clients %}
+            {% if client.url %}<a href="http://{{ client.url }}" target="_blank">{% endif %}
+  				<div class="colImg col-xs-6 {{ client.category.name.lower }}">
+  					<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
+  				</div>
+            {% if client.url %}</a>{% endif %}
+  		{% endfor %}
+  		</div>
+	</div>
   {% endblock %}
