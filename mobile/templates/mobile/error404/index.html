@@ -1,9 +1,13 @@
 {% extends 'mobile/base.html' %}
   {% block content %}
-      <div class="col-xs-12 text-center">
-          <h1>Desculpe o Transtorno!</h1>
-          <hr/>
-          <h3>Site em construção.</h3>
-          <h4><a href="{% url 'mobile.views.home' %}">Retorne para a página inicial.</a></h4>
-    	</div>
+    <div class="col-xs-12 text-center">
+        <h1>Desculpe o Transtorno!</h1>
+        <hr/>
+        <h3>Site em construção.</h3>
+        <h4><a href="{% url 'mobile.views.home' %}">Retorne para a página inicial.</a></h4>
+        <div class="navbar-fixed-bottom text-right">
+            <hr/>
+            <p>Seu IP: {{ ip }} &nbsp; &nbsp;</p>
+        </div>
+    </div>
   {% endblock %}

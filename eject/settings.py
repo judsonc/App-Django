@@ -27,15 +27,38 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+### Generals Settings ###
+
 # Settings Email
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# Pegar id da empresa no banco
+SITE_ID = 4
+
+# Expirar sessao apos fechar browser
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# Limitar tempo da sessao (s)
+SESSION_COOKIE_AGE = 360 # 6 min
+# Pegando a inatividade
+SESSION_SAVE_EVERY_REQUEST = True
+
+# Limitar tamanho de upload (mb)
+#FILE_UPLOAD_MAX_MEMORY_SIZE = 22
+
+
+GRAPPELLI_ADMIN_TITLE = "Blog do Fernando"
+
+GRAPPELLI_SWITCH_USER = False
+
+### Generals Settings Ends ###
 
 # Application definition
-
 INSTALLED_APPS = [
-    'django_admin_bootstrapped',
+    #'django_admin_bootstrapped',
+    'grappelli', #adm
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +67,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sitio',
     'mobile',
+    'django.contrib.sites', # del
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia',
+    'zinnia_ckeditor',
+    'ckeditor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -70,6 +100,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n', # del
+                'zinnia.context_processors.version', # del
+                "django.core.context_processors.request", #adm
             ],
         },
     },
@@ -147,3 +180,6 @@ MEDIA_URL = '/media/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Desativar email de notificacao pra novos comentarios
+ZINNIA_MAIL_COMMENT_AUTHORS = False

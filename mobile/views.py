@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render, get_object_or_404, redirect, render_to_response
-from django.utils import timezone
+from django.shortcuts import render #, get_object_or_404, redirect, render_to_response
+#from django.utils import timezone
+#from django.template import RequestContext, Context
+#from django.template.loader import get_template
 from django.contrib import messages
-from django.template import RequestContext, Context
-from django.template.loader import get_template
+from ipware.ip import get_ip
 from sitio.models import *
 from sitio.forms import *
 
@@ -62,5 +63,9 @@ def contact(request):  # Formulario contato
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def blog(request):   # Formulario contato
+    ip = get_ip(request)
+    if ip is None:
+        ip = "Conexão falhou!!"
     return render(request, 'mobile/error404/index.html',
-        {'title': "novidades", 'company': getCompany()})
+        {'title': "novidades", 'company': getCompany(), 'ip': ip,
+        'formEJ': contactEJ(request), 'formYou': contactYou(request)})

@@ -3,22 +3,22 @@
   {% block content %}
       <div class="col-xs-12">
         <div id='sobre' class="col-xs-9 ">
-            <div class="col-xs-12 quemSomos">
-                <h1>Who are <strong>we</strong>?</h1>
+            <div class="col-xs-12 quemSomos" style="text-align: justify;">
+                <h1>Quem somos?</h1>
                 <p>{{ company.about|linebreaks }}</p>
             </div>
             <div class="col-xs-4 missao">
-              <span class="icon" style="background-position:-15px 397px;"></span>
+              <span class="icon" style="background-position:0 407px;"></span>
               <h2>Missão</h2>
               <p>{{ company.mission }}</p>
             </div>
             <div class="col-xs-4 visao">
-              <span class="icon" style="background-position:-15px 180px;"></span>
+              <span class="icon" style="background-position:0 190px;"></span>
                 <h2>Visão</h2>
                 <p>{{ company.vision }}</p>
             </div>
             <div class="col-xs-4 valores">
-              <span class="icon" style="background-position:-15px 288px;"></span>
+              <span class="icon" style="background-position:0 298px;"></span>
                 <h2>Valores</h2>
                 <p>{{ company.value|linebreaks }}</p>
             </div>
@@ -42,11 +42,9 @@
                   <img class="col-xs-12 espaco" alt="" src="{% static '' %}sitio/img/ufrn.svg"/>
                 </a>
                 <a href="http://www.fb.com/federacaornjunior" target="_blank">
-                    <img class="col-xs-12 espaco" alt="" src="{% static '' %}sitio/img/rn.png"/>
+                    <img class="col-xs-12 espaco" alt="" src="{% static '' %}sitio/img/rn-junior.svg"/>
                 </a>
-                <a href="#" target="_blank">
-                  <img class="col-xs-12 espaco" alt="" src="{% static '' %}sitio/img/evs.svg"/>
-                </a>
+                <img class="col-xs-12 espaco" alt="" src="{% static '' %}sitio/img/evs.svg"/>
             </div>
         </div>
     </div>

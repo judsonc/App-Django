@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render #, get_object_or_404, redirect, render_to_response
+from django.http import HttpResponseNotFound
 #from django.utils import timezone
 #from django.template import RequestContext, Context
 #from django.template.loader import get_template
+#from django.core.mail import send_mail
+from datetime import datetime
+from ipware.ip import get_ip
 from django.contrib import messages
-from django.core.mail import send_mail
 from sitio.models import *
 from sitio.forms import *
 
@@ -62,6 +65,18 @@ def services(request):
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def blog(request):   # Formulario contato
+    ip = get_ip(request)
+    if ip is None:
+        ip = "Conexão falhou!!"
     return render(request, 'sitio/error404/index.html',
-        {'title': "novidades", 'company': getCompany(),
+        {'title': "novidades", 'company': getCompany(), 'ip': ip,
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
+
+# Testando outra coisa
+def teste(request):
+    return render(request, 'sitio/error404/teste.html', {'time': datetime.now()})
+
+def not_found_error(request, template_name='sitio/error404/index.html'):
+    t = loader.get_template(template_name)
+    d = site_pages(request)
+    return HttpResponseNotFound(t.render(Context(d)))

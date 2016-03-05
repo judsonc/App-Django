@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from django.utils import timezone
+#from django.utils import timezone
 
 class Company(models.Model):
     author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
@@ -26,7 +26,7 @@ class Banner(models.Model):
     author = models.ForeignKey('auth.User', default=1, verbose_name='Usuário')
     name = models.CharField('Nome', max_length=100)
     picture = models.ImageField('Foto (DESKTOP)*', upload_to='img/banner')
-    picture_small = models.ImageField('Foto (MOBILE)', upload_to='img/banner')
+    picture_small = models.ImageField('Foto (MOBILE)', upload_to='img/banner', null=True, blank=True)
     created_date = models.DateTimeField('Data de envio', auto_now_add=True)
 
     class Meta:
@@ -82,9 +82,9 @@ class Client(models.Model):
 
 class Mail(models.Model):
     name = models.CharField('Nome', max_length=50, null=True, blank=True)
-    phone = models.CharField('Telefone', max_length=11, null=True, blank=True)
+    phone = models.CharField('Telefone', max_length=20, null=True, blank=True)
     mail = models.EmailField('Email', max_length=50)
-    text = models.TextField('Mensagem', max_length=200)
+    text = models.TextField('Mensagem', max_length=300)
     created_date = models.DateTimeField('Data de envio', auto_now_add=True)
 
     class Meta:
