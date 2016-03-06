@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v((xg%&h4#ad0ybff#14ii53ij*3jtb854+lck7(tnq7(on+5y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+ALLOWED_HOSTS = ['ejectufrn.pythonanywhere.com']
 
 ### Generals Settings ###
 
@@ -35,13 +35,13 @@ ALLOWED_HOSTS = ['*']
 # EMAIL_USE_TLS = True
 
 # Pegar id da empresa no banco
-SITE_ID = 4
+# SITE_ID = 4
 
 # Expirar sessao apos fechar browser
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Limitar tempo da sessao (s)
-SESSION_COOKIE_AGE = 360 # 6 min
+SESSION_COOKIE_AGE = 12000 # 20 min
 # Pegando a inatividade
 SESSION_SAVE_EVERY_REQUEST = True
 
@@ -49,9 +49,9 @@ SESSION_SAVE_EVERY_REQUEST = True
 #FILE_UPLOAD_MAX_MEMORY_SIZE = 22
 
 
-GRAPPELLI_ADMIN_TITLE = "Blog do Fernando"
+GRAPPELLI_ADMIN_TITLE = "EJECT"
 
-GRAPPELLI_SWITCH_USER = False
+GRAPPELLI_SWITCH_USER = True
 
 ### Generals Settings Ends ###
 
@@ -67,13 +67,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sitio',
     'mobile',
-    'django.contrib.sites', # del
-    'django_comments',
-    'mptt',
-    'tagging',
-    'zinnia',
-    'zinnia_ckeditor',
-    'ckeditor',
+    # Blog Zinnia
+    # 'django.contrib.sites',
+    # 'django_comments',
+    # 'mptt',
+    # 'tagging',
+    # 'zinnia',
+    # 'zinnia_ckeditor',
+    # 'ckeditor',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -100,9 +101,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n', # del
-                'zinnia.context_processors.version', # del
                 "django.core.context_processors.request", #adm
+            #   'django.template.context_processors.i18n', # del
+            #    'zinnia.context_processors.version', # del
             ],
         },
     },
@@ -168,7 +169,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = 'http://www.ejectufrn.com.br/static/'
+STATIC_URL = 'http://static.ejectufrn.com.br/siteeject/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -182,4 +183,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Desativar email de notificacao pra novos comentarios
-ZINNIA_MAIL_COMMENT_AUTHORS = False
+# ZINNIA_MAIL_COMMENT_AUTHORS = False

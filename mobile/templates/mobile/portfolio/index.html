@@ -18,7 +18,7 @@
   		{% for client in clients %}
             {% if client.url %}<a href="http://{{ client.url }}" target="_blank">{% endif %}
   				<div class="colImg col-xs-6 {{ client.category.name.lower }}">
-  					<img src="/media/{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
+  					<img src="{{ MEDIA_URL }}{{ client.picture }}" class="imgPort mostrarImagem {{ client.category.name.lower }}">
   				</div>
             {% if client.url %}</a>{% endif %}
   		{% endfor %}

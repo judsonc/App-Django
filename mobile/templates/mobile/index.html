@@ -14,9 +14,9 @@
           {% for photo in photos %}
             <div class="item {% if forloop.first %} active {% endif %}">
             {% if photo.picture_small %}
-                <div class="picture-small-media" style="background-image:url('{{ photo.picture_small.url }}');display:none"></div>
+                <div class="picture-small-media" style="background-image:url('{{ MEDIA_URL }}{{ photo.picture_small.url }}');display:none"></div>
             {% endif %}
-                <div class="picture {% if photo.picture_small %} picture-media{% endif %}" style="background-image:url('{{ photo.picture.url }}')"></div>
+                <div class="picture {% if photo.picture_small %} picture-media{% endif %}" style="background-image:url('{{ MEDIA_URL }}{{ photo.picture.url }}')"></div>
        	    </div>
             {% endfor %}
             <!--picture>

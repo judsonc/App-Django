@@ -11,8 +11,7 @@
         <div class="carousel-inner" role="listbox">
           {% for photo in photos %}
              <div class="item {% if forloop.first %} active {% endif %}">
-                <div class="picture" style="background-image:url('{{ photo.picture.url }}')"></div>
-       	        <!--img width="100%" height="100%" src="/media/{{ photo.picture.name }}" alt="{{ photo.name }}"-->
+                <div class="picture" style="background-image:url('{{ MEDIA_URL }}{{ photo.picture.url }}')"></div>
        	    </div>
           {% endfor %}
            <!-- Left and right controls -->

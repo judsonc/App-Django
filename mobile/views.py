@@ -63,9 +63,12 @@ def contact(request):  # Formulario contato
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def blog(request):   # Formulario contato
+    return home(request)
+    """
     ip = get_ip(request)
     if ip is None:
         ip = "Conexão falhou!!"
     return render(request, 'mobile/error404/index.html',
         {'title': "novidades", 'company': getCompany(), 'ip': ip,
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
+    """

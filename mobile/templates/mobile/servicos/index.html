@@ -5,7 +5,7 @@
 		    <div class="col-xs-12" id="col01">{% for category in categories %}
 				<div class="op" id="{{ category.name.lower }}">
 					<div class="ponta"></div>
-					<div class="box1"><img src="/media/{{ category.picture }}"/></div>
+					<div class="box1"><img src="{{ MEDIA_URL }}{{ category.picture }}"/></div>
 					<div class="sombra"></div>
 					<div class="box2">
 						<div class="texto">{{ category.text|linebreaks }}</div>
@@ -16,7 +16,7 @@
     					<div class="op">
     						<div class="ponta"></div>
     						<div class="box1 sub">
-    							<img src="/media/{{ service.picture }}"/>
+    							<img src="{{ MEDIA_URL }}{{ service.picture }}"/>
     						</div>
     						<div class="sombra"></div>
     						<div class="box22 sub">

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render #, get_object_or_404, redirect, render_to_response
-from django.http import HttpResponseNotFound
+from django.shortcuts import render, render_to_response #, get_object_or_404, redirect,
+from django.template import RequestContext #, Context
+#from django.http import HttpResponseNotFound
 #from django.utils import timezone
-#from django.template import RequestContext, Context
 #from django.template.loader import get_template
 #from django.core.mail import send_mail
-from datetime import datetime
+#from datetime import datetime
 from ipware.ip import get_ip
 from django.contrib import messages
-from sitio.models import *
-from sitio.forms import *
+from sitio.models import Company, Banner, Client, CategoryServices, Service
+from sitio.forms import FormContactEJ, FormContactYou
 
 # Retornando o nome do site e suas informações (atributos)
 def getCompany():
@@ -65,18 +65,23 @@ def services(request):
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
 
 def blog(request):   # Formulario contato
+    return home(request)
+    """
     ip = get_ip(request)
     if ip is None:
         ip = "Conexão falhou!!"
     return render(request, 'sitio/error404/index.html',
         {'title': "novidades", 'company': getCompany(), 'ip': ip,
         'formEJ': contactEJ(request), 'formYou': contactYou(request)})
+    """
 
-# Testando outra coisa
-def teste(request):
-    return render(request, 'sitio/error404/teste.html', {'time': datetime.now()})
-
-def not_found_error(request, template_name='sitio/error404/index.html'):
-    t = loader.get_template(template_name)
-    d = site_pages(request)
-    return HttpResponseNotFound(t.render(Context(d)))
+def not_found_error(request):
+    ip = get_ip(request)
+    if ip is None:
+        ip = "Conexão falhou!!"
+    response = render_to_response('sitio/error404/index.html',
+                    {'company': getCompany(), 'title': "Página não encontrada", 'ip': ip,
+                    'formEJ': contactEJ(request), 'formYou': contactYou(request)},
+                    context_instance = RequestContext(request))
+    response.status_code = 404
+    return response

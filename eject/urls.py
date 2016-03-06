@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = 'sitio.views.not_found_error'
+
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', admin.site.urls),
     url(r'^', include('sitio.urls')),
     url(r'^mobile/', include('mobile.urls')),
     # Blog Zinnia
-    url(r'^weblog/', include('zinnia.urls', namespace='zinnia')),
-    url(r'^comments/', include('django_comments.urls')),
+    # url(r'^weblog/', include('zinnia.urls', namespace='zinnia')),
+    # url(r'^comments/', include('django_comments.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
